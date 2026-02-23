@@ -148,7 +148,7 @@ export class DocumentProcessor {
       "---",
       `granola_id: ${metadata.granolaId}`,
       `title: "${escapedTitleForYaml}"`,
-      `type: ${metadata.type}`,
+      `granola_type: ${metadata.type}`,
     ];
     if (metadata.createdAt) frontmatterLines.push(`created: ${metadata.createdAt}`);
     if (metadata.updatedAt) frontmatterLines.push(`updated: ${metadata.updatedAt}`);
@@ -205,13 +205,12 @@ export class DocumentProcessor {
     // Build body using shared builder
     const body = this.buildNoteBody(doc, { headingLevel: 2 });
 
-    // Prepare frontmatter with type: combined
     const escapedTitleForYaml = metadata.title.replace(/"/g, '\\"');
     const frontmatterLines = [
       "---",
       `granola_id: ${metadata.granolaId}`,
       `title: "${escapedTitleForYaml}"`,
-      `type: ${metadata.type}`,
+      `granola_type: ${metadata.type}`,
     ];
     if (metadata.createdAt) frontmatterLines.push(`created: ${metadata.createdAt}`);
     if (metadata.updatedAt) frontmatterLines.push(`updated: ${metadata.updatedAt}`);
@@ -259,7 +258,6 @@ export class DocumentProcessor {
   ): {
     title: string;
     docId: string;
-    type: string;
     createdAt?: string;
     updatedAt?: string;
     attendees: string[];
@@ -280,7 +278,6 @@ export class DocumentProcessor {
       return {
         title: metadata.title,
         docId: metadata.granolaId,
-        type: metadata.type,
         createdAt: metadata.createdAt,
         updatedAt: metadata.updatedAt,
         attendees: metadata.attendees,

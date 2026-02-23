@@ -88,7 +88,7 @@ export function formatTranscriptBySpeaker(
     "---",
     `granola_id: ${granolaId}`,
     `title: "${escapedTitleForYaml} - Transcript"`,
-    `type: transcript`,
+    `granola_type: transcript`,
   ];
   if (createdAt) frontmatterLines.push(`created: ${createdAt}`);
   if (updatedAt) frontmatterLines.push(`updated: ${updatedAt}`);

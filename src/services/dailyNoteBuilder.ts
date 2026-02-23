@@ -14,7 +14,6 @@ import { log } from "../utils/logger";
 export interface NoteData {
   title: string;
   docId: string;
-  type: string;
   createdAt?: string;
   updatedAt?: string;
   attendees: string[];
@@ -186,10 +185,6 @@ export class DailyNoteBuilder {
     for (const note of notesForDay) {
       content += `\n${noteHeadingPrefix} ${note.title}\n`;
       content += `**Granola ID:** ${note.docId}\n`;
-
-      if (note.type) {
-        content += `**Type:** ${note.type}\n`;
-      }
 
       if (note.createdAt) {
         content += `**Created:** ${note.createdAt}\n`;

@@ -295,14 +295,14 @@ describe("FileSyncService", () => {
         .mockReturnValueOnce({
           frontmatter: {
             granola_id: "test-id",
-            type: "note",
+            granola_type: "note",
             updated: "2024-01-15T10:00:00Z",
           },
         } as any)
         .mockReturnValueOnce({
           frontmatter: {
             granola_id: "test-id",
-            type: "transcript",
+            granola_type: "transcript",
             updated: "2024-01-15T14:00:00Z",
           },
         } as any);
@@ -1755,10 +1755,10 @@ describe("FileSyncService", () => {
       ]);
       mockApp.metadataCache.getFileCache
         .mockReturnValueOnce({
-          frontmatter: { granola_id: "doc-123", type: "note" },
+          frontmatter: { granola_id: "doc-123", granola_type: "note" },
         } as any)
         .mockReturnValueOnce({
-          frontmatter: { granola_id: "doc-123", type: "transcript" },
+          frontmatter: { granola_id: "doc-123", granola_type: "transcript" },
         } as any);
 
       await fileSyncService.buildCache();
@@ -1880,7 +1880,7 @@ describe("FileSyncService", () => {
 
       mockApp.vault.getMarkdownFiles.mockReturnValue([mockFile]);
       mockApp.metadataCache.getFileCache.mockReturnValue({
-        frontmatter: { granola_id: "doc-123", type: "combined" },
+        frontmatter: { granola_id: "doc-123", granola_type: "combined" },
       } as any);
 
       await fileSyncService.buildCache();
@@ -1900,7 +1900,7 @@ describe("FileSyncService", () => {
       mockApp.metadataCache.getFileCache.mockReturnValue({
         frontmatter: {
           granola_id: "doc-123",
-          type: "combined",
+          granola_type: "combined",
           updated: "2024-01-15T10:00:00Z",
         },
       } as any);
@@ -1935,7 +1935,7 @@ describe("FileSyncService", () => {
       mockDocumentProcessor = {
         prepareCombinedNote: jest.fn().mockReturnValue({
           filename: "Test Note.md",
-          content: "---\ngranola_id: doc-123\ntype: combined\n---\n\n## Note\n\nNote content\n\n## Transcript\n\nTranscript content",
+          content: "---\ngranola_id: doc-123\ngranola_type: combined\n---\n\n## Note\n\nNote content\n\n## Transcript\n\nTranscript content",
         }),
       } as any;
 
@@ -2002,7 +2002,7 @@ describe("FileSyncService", () => {
       // Setup cache with existing file
       mockApp.vault.getMarkdownFiles.mockReturnValue([mockFile]);
       mockApp.metadataCache.getFileCache.mockReturnValue({
-        frontmatter: { granola_id: "doc-123", type: "combined" },
+        frontmatter: { granola_id: "doc-123", granola_type: "combined" },
       } as any);
       await fileSyncService.buildCache();
 
@@ -2027,7 +2027,7 @@ describe("FileSyncService", () => {
       // Setup cache with existing file
       mockApp.vault.getMarkdownFiles.mockReturnValue([mockFile]);
       mockApp.metadataCache.getFileCache.mockReturnValue({
-        frontmatter: { granola_id: "doc-123", type: "combined" },
+        frontmatter: { granola_id: "doc-123", granola_type: "combined" },
       } as any);
       await fileSyncService.buildCache();
 

@@ -91,7 +91,7 @@ describe("DocumentProcessor", () => {
       expect(result.content).toContain("---");
       expect(result.content).toContain("granola_id: doc-123");
       expect(result.content).toContain('title: "Test Note"');
-      expect(result.content).toContain("type: note");
+      expect(result.content).toContain("granola_type: note");
       expect(result.content).toContain("created: 2024-01-15T10:00:00Z");
       expect(result.content).toContain("updated: 2024-01-15T12:00:00Z");
       expect(result.content).toContain("# Mock Content");
@@ -113,7 +113,7 @@ describe("DocumentProcessor", () => {
 
       expect(result.filename).toBe("Minimal Note.md");
       expect(result.content).toContain("granola_id: doc-456");
-      expect(result.content).toContain("type: note");
+      expect(result.content).toContain("granola_type: note");
       expect(result.content).not.toContain("created:");
       expect(result.content).not.toContain("updated:");
     });
@@ -433,7 +433,6 @@ describe("DocumentProcessor", () => {
       expect(result).toEqual({
         title: "Test Note",
         docId: "doc-123",
-        type: "note",
         createdAt: "2024-01-15T10:00:00Z",
         updatedAt: "2024-01-15T12:00:00Z",
         attendees: [],
@@ -470,7 +469,6 @@ describe("DocumentProcessor", () => {
       expect(result).toEqual({
         title: "Minimal Note",
         docId: "doc-456",
-        type: "note",
         createdAt: undefined,
         updatedAt: undefined,
         attendees: [],
@@ -507,7 +505,7 @@ describe("DocumentProcessor", () => {
       expect(result.content).toContain("---");
       expect(result.content).toContain("granola_id: doc-123");
       expect(result.content).toContain('title: "Test Note"');
-      expect(result.content).toContain("type: combined");
+      expect(result.content).toContain("granola_type: combined");
       expect(result.content).toContain("created: 2024-01-15T10:00:00Z");
       expect(result.content).toContain("updated: 2024-01-15T12:00:00Z");
       expect(result.content).toContain("## Note\n\n");
@@ -622,7 +620,7 @@ describe("DocumentProcessor", () => {
 
       expect(result.filename).toBe("Minimal Note.md");
       expect(result.content).toContain("granola_id: doc-456");
-      expect(result.content).toContain("type: combined");
+      expect(result.content).toContain("granola_type: combined");
       expect(result.content).not.toContain("created:");
       expect(result.content).not.toContain("updated:");
     });

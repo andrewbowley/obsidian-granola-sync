@@ -195,7 +195,6 @@ describe("DailyNoteBuilder", () => {
       const noteData1: NoteData = {
         title: "Note 1",
         docId: "doc-1",
-        type: "note",
         createdAt: "2024-01-15T10:00:00Z",
         attendees: [],
         markdown: "Content 1",
@@ -203,7 +202,6 @@ describe("DailyNoteBuilder", () => {
       const noteData2: NoteData = {
         title: "Note 2",
         docId: "doc-2",
-        type: "note",
         createdAt: "2024-01-15T11:00:00Z",
         attendees: [],
         markdown: "Content 2",
@@ -211,7 +209,6 @@ describe("DailyNoteBuilder", () => {
       const noteData3: NoteData = {
         title: "Note 3",
         docId: "doc-3",
-        type: "note",
         createdAt: "2024-01-16T10:00:00Z",
         attendees: [],
         markdown: "Content 3",
@@ -253,7 +250,6 @@ describe("DailyNoteBuilder", () => {
         .mockReturnValueOnce({
           title: "Note 2",
           docId: "doc-2",
-          type: "note",
           createdAt: "2024-01-15T10:00:00Z",
           attendees: [],
           markdown: "Content 2",
@@ -310,7 +306,6 @@ describe("DailyNoteBuilder", () => {
     const noteData: NoteData = {
       title: "Test Note",
       docId: "doc-123",
-      type: "note",
       createdAt: "2024-01-15T10:00:00Z",
       updatedAt: "2024-01-15T12:00:00Z",
       attendees: [],
@@ -344,7 +339,6 @@ describe("DailyNoteBuilder", () => {
       const noteWithoutTimestamps: NoteData = {
         title: "Test Note",
         docId: "doc-123",
-        type: "note",
         attendees: [],
         markdown: "Content",
       };
@@ -374,7 +368,6 @@ describe("DailyNoteBuilder", () => {
       const noteData2: NoteData = {
         title: "Second Note",
         docId: "doc-456",
-        type: "note",
         attendees: [],
         markdown: "Second content",
       };

@@ -45,7 +45,7 @@ describe("formatTranscriptBySpeaker", () => {
     expect(result).toContain("---");
     expect(result).toContain("granola_id: test-id");
     expect(result).toContain('title: "Test Meeting - Transcript"');
-    expect(result).toContain("type: transcript");
+    expect(result).toContain("granola_type: transcript");
     expect(result).toContain("# Transcript for: Test Meeting");
     expect(result).toContain("## You (00:00:01)");
     expect(result).toContain("Hello, how are you?");
@@ -110,7 +110,7 @@ describe("formatTranscriptBySpeaker", () => {
 
     expect(result).toContain("---");
     expect(result).toContain("granola_id: empty-id");
-    expect(result).toContain("type: transcript");
+    expect(result).toContain("granola_type: transcript");
     expect(result).toContain("# Transcript for: Empty");
     // Should not have any speaker sections
     expect(result).not.toContain("## You");
@@ -285,7 +285,7 @@ describe("formatTranscriptBySpeaker", () => {
 
     expect(result).toContain("---");
     expect(result).toContain("granola_id: meeting-123");
-    expect(result).toContain("type: transcript");
+    expect(result).toContain("granola_type: transcript");
     expect(result).toContain(`created: ${createdAt}`);
     expect(result).toContain(`updated: ${updatedAt}`);
     expect(result).toContain("---");
@@ -312,7 +312,7 @@ describe("formatTranscriptBySpeaker", () => {
 
     expect(result).toContain("---");
     expect(result).toContain("granola_id: meeting-456");
-    expect(result).toContain("type: transcript");
+    expect(result).toContain("granola_type: transcript");
     expect(result).not.toContain("created:");
     expect(result).not.toContain("updated:");
     expect(result).toContain("---");
@@ -476,7 +476,7 @@ describe("formatTranscriptBody", () => {
 
     expect(result).not.toContain("---");
     expect(result).not.toContain("granola_id");
-    expect(result).not.toContain("type: transcript");
+    expect(result).not.toContain("granola_type: transcript");
     expect(result).toContain("## You (00:00:01)");
     expect(result).toContain("Hello, how are you?");
     expect(result).toContain("## Guest (00:00:06)");
