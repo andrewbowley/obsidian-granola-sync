@@ -45,7 +45,7 @@ All synced files include structured frontmatter for tracking and identification:
 ---
 granola_id: doc-123
 title: "Meeting Title"
-type: note
+granola_type: note
 created: 2024-01-15T10:00:00Z
 updated: 2024-01-15T12:00:00Z
 attendees:
@@ -60,7 +60,7 @@ transcript: "[[Transcripts/Meeting Title-transcript.md]]"
 ---
 granola_id: doc-123
 title: "Meeting Title - Transcript"
-type: transcript
+granola_type: transcript
 created: 2024-01-15T10:00:00Z
 updated: 2024-01-15T12:00:00Z
 attendees:
@@ -70,13 +70,13 @@ note: "[[Granola/Meeting Title.md]]"
 ---
 ```
 
-The `granola_id` is consistent across both note and transcript files for the same source document, while the `type` field distinguishes between them. This allows both file types to coexist with proper duplicate detection.
+The `granola_id` is consistent across both note and transcript files for the same source document, while the `granola_type` field distinguishes between them. This allows both file types to coexist with proper duplicate detection. The `granola_type` field is used instead of `type` so that the `type` property remains free for your own use (e.g., `type: Meeting`).
 
 ### Frontmatter Fields
 
 - `granola_id`: Unique identifier from Granola, consistent across note and transcript files
 - `title`: Document title (with "- Transcript" suffix for transcripts)
-- `type`: Either `note` or `transcript`
+- `granola_type`: Either `note`, `transcript`, or `combined` — distinguishes file purpose without conflicting with user-defined `type` values
 - `created`: ISO timestamp when the document was created
 - `updated`: ISO timestamp when the document was last updated
 - `attendees`: Array of attendee names from the meeting

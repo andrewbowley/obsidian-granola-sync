@@ -137,7 +137,7 @@ flowchart LR
 
 **Cache Structure**: `Map<cacheKey, TFile>`
 
-- Key: Composite key in format `{granolaId}-{type}` where type is 'note' or 'transcript'
+- Key: Composite key in format `{granolaId}-{granola_type}` where granola_type is 'note' or 'transcript'
 - Value: Obsidian `TFile` reference
 - This allows notes and transcripts with the same Granola ID to coexist without conflicts
 
@@ -151,7 +151,7 @@ All synced files include frontmatter with metadata for tracking and identificati
 ---
 granola_id: doc-123
 title: "Meeting Title"
-type: note
+granola_type: note
 created: 2024-01-15T10:00:00Z
 updated: 2024-01-15T12:00:00Z
 ---
@@ -163,7 +163,7 @@ updated: 2024-01-15T12:00:00Z
 ---
 granola_id: doc-123
 title: "Meeting Title - Transcript"
-type: transcript
+granola_type: transcript
 created: 2024-01-15T10:00:00Z
 updated: 2024-01-15T12:00:00Z
 ---
@@ -172,16 +172,16 @@ updated: 2024-01-15T12:00:00Z
 **Key Features**:
 
 - `granola_id`: Consistent across both note and transcript for the same source document
-- `type`: Distinguishes between 'note' and 'transcript' files
+- `granola_type`: Distinguishes between 'note' and 'transcript' files (uses `granola_type` instead of `type` to avoid conflicts with user-defined `type` values)
 - `created` and `updated`: Timestamps from Granola API (when available)
-- Both file types can share the same `granola_id` while being uniquely identified by `type`
+- Both file types can share the same `granola_id` while being uniquely identified by `granola_type`
 
 ### Legacy Frontmatter Migration
 
 The plugin automatically migrates legacy frontmatter formats on load:
 
 - Removes `-transcript` suffix from `granola_id` in transcript files
-- Adds `type` field to all files (note/transcript)
+- Adds `granola_type` field to all files (note/transcript)
 - Adds missing timestamps to transcript files (when available)
 - Migration runs silently in the background
 - Will be removed in version 2.0.0
